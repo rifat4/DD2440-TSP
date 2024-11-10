@@ -15,15 +15,31 @@ public class teststuff {
     static ArrayList<Integer> arr = new ArrayList<>();
 
     public static void main(String[] args){
-        arr.add(5);
+        int N = 19;
+        int i = 3;
+        int j = 7;
+        int half = (N - j + i + 1) / 2;
+        int counter = 0;
+        while (counter < half) {
+            counter++;
+            System.out.println("i: " + (i % N + N) % N);
+            System.out.println("j: " + j % N);
+            i--;
+            j++;
+        }
 
-        ArrayList<Integer> barr = arr;
-
-        barr.remove(barr.size() -1);
-
-        System.out.println(arr);
+    }
 
 
+    static <T> void reverseList(T[] list, int i, int j){
+        int size = list.length - 1;
+        while(i < j){
+            T temp = list[i];
+            list[i] = list[j];
+            list[j] = temp;
+            i++;
+            j++;
+        }
     }
 
     static void arrstuff(){

@@ -165,21 +165,27 @@ public class Main {
 
         readNodes(N);
 
-        if(N <= 00) {
+        if(N <= 10) {
             exhaustiveTSP(N, nodes);
         }
-        else if(N <= 00) subExhaustiveTSP(N, nodes);
+        else if(N <= 100) {
+            TwoOpt twoOpt = new TwoOpt(N, cords);
+            twoOpt.start(startTime);
+            twoOpt.printPath(io);
+        }
         else {
             for(int i = 0; i < N; i++){
                 greedyTSPArray(N, i);
                 long endTime = System.currentTimeMillis();
                 long elapsedTime = endTime - startTime;
-                if(elapsedTime > 1900) break;
+                if(elapsedTime > 1800) break;
             }
         }
 
-        for(int node : thePath){
-            System.out.println(node);
+        if(thePath != null){
+            for(int node : thePath){
+                System.out.println(node);
+            }
         }
 
     }
